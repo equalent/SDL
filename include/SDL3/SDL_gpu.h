@@ -4234,6 +4234,8 @@ extern SDL_DECLSPEC bool SDLCALL SDL_QueryGPUFence(
 /**
  * Releases a fence obtained from SDL_SubmitGPUCommandBufferAndAcquireFence.
  *
+ * You must not reference the fence after calling this function.
+ *
  * \param device a GPU context.
  * \param fence a fence.
  *
