@@ -892,7 +892,7 @@ struct SDL_GPUDevice
         SDL_GPUTextureFormat format,
         SDL_GPUSampleCount desiredSampleCount);
 
-    Uint64 (*GetTimestampFrequency)(
+    float (*GetTimestampPeriod)(
         SDL_GPURenderer *driverData);
 
     // Opaque pointer for the Driver
@@ -998,7 +998,7 @@ struct SDL_GPUDevice
     ASSIGN_DRIVER_FUNC(ReleaseFence, name)                  \
     ASSIGN_DRIVER_FUNC(SupportsTextureFormat, name)         \
     ASSIGN_DRIVER_FUNC(SupportsSampleCount, name)           \
-    ASSIGN_DRIVER_FUNC(GetTimestampFrequency, name)
+    ASSIGN_DRIVER_FUNC(GetTimestampPeriod, name)
 
 typedef struct SDL_GPUBootstrap
 {

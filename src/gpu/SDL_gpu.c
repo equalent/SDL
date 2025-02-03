@@ -731,11 +731,11 @@ bool SDL_GPUTextureSupportsSampleCount(
 }
 
 
-Uint64 SDL_GetGPUTimestampFrequency(SDL_GPUDevice *device)
+float SDL_GetGPUTimestampPeriod(SDL_GPUDevice *device)
 {
     CHECK_DEVICE_MAGIC(device, 0);
 
-    return device->GetTimestampFrequency(
+    return device->GetTimestampPeriod(
         device->driverData);
 }
 
@@ -1102,7 +1102,7 @@ SDL_GPUTransferBuffer *SDL_CreateGPUTransferBuffer(
 
 SDL_GPUQueryPool *SDL_CreateGPUQueryPool(
     SDL_GPUDevice *device,
-    SDL_GPUQueryPoolCreateInfo *createinfo)
+    const SDL_GPUQueryPoolCreateInfo *createinfo)
 {
     CHECK_DEVICE_MAGIC(device, NULL);
     if (createinfo == NULL) {

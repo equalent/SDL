@@ -4313,17 +4313,17 @@ extern SDL_DECLSPEC Uint32 SDLCALL SDL_CalculateGPUTextureFormatSize(
     Uint32 depth_or_layer_count);
 
 /**
- * Gets the GPU ticks per second, needed for converting timestamp query ticks into time.
+ * Gets the GPU number of nanoseconds it takes for a timestamp query value to be increased by 1 ("tick")
  *
- * Delta time in seconds between two queries 'start' and 'end' can be computed as:
- * dt = (start - end) / double(frequency)
+ * Delta time in ms between two queries 'start' and 'end' can be computed as:
+ * float delta_in_ms = float(time_stamps[1] - time_stamps[0]) * timestampPeriod / 1000000.0f;
  *
  * \param device a GPU context.
- * \returns the number of ticks per second for a given GPU device.
+ * \returns the number of ns per tick for a given GPU device.
  *
  * \since This function is available since SDL 3.2.x.
  */
-extern SDL_DECLSPEC Uint64 SDLCALL SDL_GetGPUTimestampFrequency(
+extern SDL_DECLSPEC float SDLCALL SDL_GetGPUTimestampPeriod(
     SDL_GPUDevice *device);
 
 #ifdef SDL_PLATFORM_GDK

@@ -6756,6 +6756,13 @@ static bool VULKAN_SupportsSampleCount(
     return !!(bits & vkSampleCount);
 }
 
+static float VULKAN_GetTimestampPeriod(
+    SDL_GPURenderer *driverData)
+{
+    VulkanRenderer *renderer = (VulkanRenderer *)driverData;
+    return renderer->physicalDeviceProperties.properties.limits.timestampPeriod;
+}
+
 static SDL_GPUTexture *VULKAN_CreateTexture(
     SDL_GPURenderer *driverData,
     const SDL_GPUTextureCreateInfo *createinfo)
